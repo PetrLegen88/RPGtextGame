@@ -1,38 +1,27 @@
+from Charakters import Player, Monster
 import random
 
 
-def critical():
+def critical(self):
     if random.randint(1, 8) == 1:
-        Monster.HP -= ((Player.damage * 2) - Monster.defence)
-        #print(f"Monster HP: {Monster.HP}")
-        Player.HP -= (Monster.damage - Player.defence)
-        #print(f"Player HP: {Player.HP}")
+        self.Monster.HP -= ((self.Player.damage * 2) - self.Monster.defence)
+        print(f"Monster HP: {self.Monster.HP}")
+        self.Player.HP -= (self.Monster.damage - self.Player.defence)
+        print(f"Player HP: {self.Player.HP}")
     else:
-        Monster.HP -= (Player.damage - Monster.defence)
-        #print(f"Monster HP: {Monster.HP}")
-        Player.HP -= (Monster.damage - Player.defence)
-        #print(f"Player HP: {Player.HP}")
+        self.Monster.HP -= (self.Player.damage - self.Monster.defence)
+        print(f"Monster HP: {self.Monster.HP}")
+        self.Player.HP -= (self.Monster.damage - self.Player.defence)
+        print(f"Player HP: {self.Player.HP}")
 
 
-def fight():
-    while Monster.HP >= 0 and Player.HP >= 0:
-        critical()
-    if Monster.HP <= 0:
+def fight(self):
+    while self.Player.HP >= 0 and self.Monster.HP >= 0:
+        critical(self)
+    if self.Monster.HP <= 0:
         print("You have killed Monster, what will be your next move?")
     else:
         print("Game over")
-
-
-class Player:
-    damage = 7
-    HP = 1000
-    defence = 3
-
-
-class Monster:
-    damage = 5
-    HP = 100
-    defence = 1
 
 
 fight()
