@@ -1,4 +1,4 @@
-import main
+# import main
 
 class Player:
 
@@ -12,6 +12,11 @@ class Player:
 class Monster:
 
     def __init__(self, level: int, hp: int, damage: int, defence: int):
+        self.level = level
         self.hp = hp
         self.damage = damage
         self.defence = defence
+
+
+monster1 = Monster(10, 100, 5, 5)
+hero = Player("Amazon", 100, damage=10, defence=1)
