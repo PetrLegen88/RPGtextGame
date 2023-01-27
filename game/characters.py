@@ -1,4 +1,3 @@
-# import main
 
 class Player:
 
@@ -16,7 +15,3 @@ class Monster:
         self.hp = hp
         self.damage = damage
         self.defence = defence
-
-
-monster1 = Monster(10, 100, 5, 5)
-hero = Player("Amazon", 100, damage=10, defence=1)
