@@ -1,5 +1,7 @@
-class Maproom:
 
-    def __init__(self, monsters, players):
-        self.monsters = monsters
-        self.players = players
+class Room:
+
+    def __init__(self) -> None:
+        self.monsters = []
+        self.players = []
+
