@@ -36,3 +36,16 @@ def critical(hero: Player, monster: Monster):
         print(f"Player HP: {hero.hp}")
 
 
+def fight(hero, monster):
+    while hero.hp > 0 and monster.hp > 0:
+        critical(hero, monster)
+    if monster.hp <= 0:
+        print(f"Hero {hero.name} have killed Monster, what will be your next move?")
+    else:
+        print("Game over")
+
+
+monster1 = Monster(10, 100, 5)
+hero = Player("Amazon", 100, 10, 1)
+
+fight(hero, monster1)
