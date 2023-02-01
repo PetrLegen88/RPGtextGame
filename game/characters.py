@@ -1,17 +1,22 @@
+class Character:
 
-class Player:
+    def __init__(self, hp: int, damage: int, defence: int, room=None):
+        self.hp = hp
+        self.damage = damage
+        self.defence = defence
+        self.room = room
 
-    def __init__(self, name: str, hp=100, damage=1, defence=1):
+
+class Player(Character):
+    Player = []
+
+    def __init__(self, name: str, hp: int, damage: int, defence: int, room=None):
+        super().__init__(hp, damage, defence, room)
         self.name = name
-        self.hp = hp
-        self.damage = damage
-        self.defence = defence
 
 
-class Monster:
+class Monster(Character):
+    Monster = []
 
-    def __init__(self, level: int, hp: int, damage: int, defence: int):
-        self.level = level
-        self.hp = hp
-        self.damage = damage
-        self.defence = defence
+    def __init__(self, hp: int, damage: int, defence: int, room=None):
+        super().__init__(hp, damage, defence, room)
