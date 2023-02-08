@@ -1,13 +1,15 @@
 """
 Tento modul obsahuje funkce pro interakci různých herních entit = hráči a monsttra, například...
 """
+import typing
 
 import random
 
-from .characters import Player, Monster
+if typing.TYPE_CHECKING:
+    from .characters import Player, Monster
 
 
-def provoke(attacker: Player, defender: Monster):
+def provoke(attacker: 'Player', defender: 'Monster'):
     """
     Player může provokovat příšeru, což ji rozlítí a zvedne ji to attack, ale taky ji to sníží defence level,
     hráči to taky přídá defense level
@@ -22,7 +24,7 @@ def provoke(attacker: Player, defender: Monster):
     attacker.defence += 1
 
 
-def critical(hero: Player, monster: Monster):
+def critical(hero: 'Player', monster: 'Monster'):
     if random.randint(1, 8) == 1:
         monster.hp -= ((hero.damage * 2) - monster.defence)
         print(f"Monster HP: {monster.hp}")
@@ -43,9 +45,3 @@ def fight(hero, monster):
         print(f"Hero {hero.name} have killed Monster, what will be your next move?")
     else:
         print("Game over")
-
-
-monster1 = Monster(10, 100, 5)
-hero = Player("Amazon", 100, 10, 1)
-
-fight(hero, monster1)
